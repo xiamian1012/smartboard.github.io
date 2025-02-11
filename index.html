@@ -1,651 +1,755 @@
-<html>
-<link href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/element-ui/2.15.7/theme-chalk/index.css" type="text/css"
-  rel="stylesheet" />
+<!DOCTYPE html>
+<html lang="en-us">
+<head> 
 <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/vue/2.6.14/vue.min.js" type="application/javascript">
 </script>
-<script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/echarts/5.3.0/echarts.min.js"
-  type="application/javascript"></script>
-<script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/alasql/0.6.2/alasql.min.js" type="application/javascript">
+<link rel="shortcut icon" type="image/x-icon" href="https://j2.58cdn.com.cn/git/_bi/rudder-web/2501101043/static/img/favicon.ico">
+<link href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/element-ui/2.15.7/theme-chalk/index.css" type="text/css"
+    rel="stylesheet" />
+<link href="https://wos2.58cdn.com.cn/MnOjIhGfMnSn/xhactivity/index.9d5ac8bd.css" type="text/css" rel="stylesheet" />
+<link href="https://wos2.58cdn.com.cn/MnOjIhGfMnSn/xhactivity/vendor.04e1f4f3.css" type="text/css" rel="stylesheet" />
+
+<script src="https://rrc.58cdn.com.cn/xinghuo_apply/xtiper.min.js"></script>
+<link href="https://rrc.58cdn.com.cn/xinghuo_apply/xtiper.min.css" type="text/css" rel="stylesheet" />
+
+
+
+<script src="https://rrc.58cdn.com.cn/xinghuo_apply/default-passive-events.js"></script>
+<script src="https://rrc.58cdn.com.cn/xinghuo_apply/index.min.js" type="application/javascript"></script>
+<script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js">
 </script>
-<script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/element-ui/2.15.7/index.min.js">
+<title>智能看板</title> 
+<script>
+
 </script>
-<script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/echarts/5.3.0-rc.1/extension/bmap.min.js"
-  type="application/javascript"></script>
-<script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=hW9i2R36BsP0mdxQgLXLDyiAZZlIB5XH"></script>
+<style>
+html,
+body {
+height: 100%;
+width: 100%;
+padding: 0px;
+margin: 0;
+box-sizing: content-box;
+caret-color: transparent !important;
+transform-origin:0px 0px 0px;
 
-    <style>
-        html, body, #app {
-            width: 99%;
-            height: 99%;
-        }
-        #chart1 {
-            width: 99%;
-            height: 99%;   
-        }
+}
 
-    .anchorBL{
-        display:none
-    }
+#xinghuo-activity,#button-left{
+    transform-origin:0px 0px 0px;
+}
+#button-right{
+    transform-origin: right top;
+}
+#xinghuo-activity{
+    width: 1920px !important;
+}
+.big {
+font-size: 28px;
 
-    </style>
+}
+.propaganda-module_propaganda {
+background-image: url(https://rrc.58cdn.com.cn/xinghuo_apply/bk4.webp) !important; 
+background-size: 100% 100% !important;
+     
+}
+.header-module_header_new {
+    height: 4rem;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    height: 56px;
+    z-index: 999;
+    min-height: 56px;
+    max-height: 56px;
 
-    <body>
-        <div id="app">
+}
 
-       <div id="chart1"></div>
+.woman {
+width: 250px;
+height: 250px;
+background-image: url(https://rrc.58cdn.com.cn/xinghuo_apply/woman.svg);
+}
+.man {
+width: 250px;
+height: 250px;
+background-image: url(https://rrc.58cdn.com.cn/xinghuo_apply/man.svg);
+}
+
+.zhedang {
+background-image: url(https://wos.58cdn.com.cn/cDazYxWcDHJ/picasso/cmosc05v.png);
+width: 240px;
+height: 40px;
+position: absolute;
+}
+
+@font-face {
+font-family: 'Impacted2.0';
+src: url(https://c.58cdn.com.cn/xinghuo_apply/Impacted2.0.ttf)
+/*src: url(https://c.58cdn.com.cn/xinghuo_apply/FightingSpiritTurbo.ttf)*/
+}
+.propaganda-content-module_propaganda-content .propaganda-content-module_activity-introduce-image {
+     background-image: url(https://c.58cdn.com.cn/xinghuo_apply/megagame.svg) !important;
+ 
+}
+.progress {
+     background-image: url(https://c.58cdn.com.cn/xinghuo_apply/progress.svg) !important;
+     background-position-y: -10px !important;
+ 
+}
+.propaganda-content-module_propaganda-content .propaganda-content-module_activity-award-image {
+    background-image: url(https://c.58cdn.com.cn/xinghuo_apply/award.svg) !important;
+   
+}
+.propaganda-content-module_propaganda-content .propaganda-content-module_activity-introduce {
+
+    height:220px !important;
+}
+
+ol,
+ul {
+list-style: circle !important;
+padding-left: 2em !important;
+}
+.signup{
+    position: fixed;
+    left:calc(50% - 300px);
+    width: 800px;
+    height: 600px;
+    z-index: 1000;
+}
+@font-face {
+font-family: 'raidercrusaderital';
+src: url(https://c.58cdn.com.cn/xinghuo_apply/raidercrusaderital.ttf)
+/*src: url(https://c.58cdn.com.cn/xinghuo_apply/FightingSpiritTurbo.ttf)*/
+}
+
+@font-face {
+font-family: 'FightingSpiritTurbo';
+src: url(https://c.58cdn.com.cn/xinghuo_apply/SarunsHarryPotter.ttf)
+}
+
+.propaganda-module_container .propaganda-module_propaganda .propaganda-module_header-container .propaganda-module_header-font1 {
+
+width: 580px !important;
+top: 60px !important;
+font-size: 50px !important;
+}
+.propaganda-module_container .propaganda-module_propaganda .propaganda-module_header-container .propaganda-module_header-font3 {
+
+font-size: 30px !important;
+
+}
+.propaganda-module_container .propaganda-module_propaganda .propaganda-module_header-container .propaganda-module_header-font2{
+    top:220px !important;
+}
+.smart {
+background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANIAAABMCAMAAAFYLCnVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMAUExURQAAAEdvx0Nxw5ew3trk84qm2kNyxMDQ60RyxIun26a845my33GT0sHR7ENxxGSJzVd/yae940Nyw3+e10Rxw42p22WKzkRywz9yv3OV02aLz0RwxENxw1mBykx3xnSW1GeM0Ojt+MDO64Kh14Kh2ENxw0Rxw014xnWX0/b4/JCs3ERyxFuDzNzk9EVzxXaY1HaY1WmO0Orv+ERxxFJ8yHeZ1E96yGqP0FB7yFN9ydHc8Pn7/V6GzERywz9vv9/n9URyxO3y+cXT7J204ERyxERxw1J9yNPe8UVzxMbU7URxxENxwz9/v0NxxLnK6VN+yUJxxYSh2KzA5URwxMfV7URyxFR/ya3B5YWi2UVyxKC34UNxw5Ot3URxxENyxK7C5Yaj2aG44URyxJSu3ZSu3kVyxENxxHqa1ZWv3UNyw4il2bDE5lN8yJaw3m6R0Ymm2nyc1kRxxG+S0oqn2mKIzn2d1tbf8nCT0kNxw0RyxIuo2lZ/ykNyw6/B5f///0l1xj9qv2SKzuXr9uXr9z90v3+f1leAykp2xvP2+8vX7mWLz0NxxEVyxFiBy9ni83OW00t3xkNyxEt3x6S54r/O6uft91mCy0VxxERyw096x0x4x83Z72eNz5iw31qDy7PF50Nxw015x87a70Rxw1uEy056x6e840Nzw0Nyw097x097yNDc8ICe18PS65uz37bI57bI6I6p3EJzxUNxw6m+5ERxxIGf2MTT7Jy04ERyxI+q3EJywoKg16q/5IKg2HWW1LjK6ERyw4Si2FyDzENywp+34U95x2qO0ERxxD9/v12Ey4Wj2HiZ1HiZ1UNxwkZyxZOu3WuP0F6FzIak2nma1VF7yGyQ0GyQ0UNww0Rxw4el2UZxxlV+yURyxG2R0UVyxERyxGCHzVN9yfz9/kl1xUZzxcfU7URxxENyw2GIzeLp9lR+yUd0xfD0+mKJztbg8kh1xUVvxGOKzrzM6laAyj92yEx4xkl2xsrX7rDD5kNyw6O54r7O65av3liCyqS64hTDJmoAAAD7dFJOUwAg1////4//g///////i////5f/bP//eBT//2iA//////////+b4//////v//8s/////+v+//////7///88EP//////7Dj/////+/QI9P//WP//NP/0////6P/8/6/H////u///8MP//8//////////v////////9Nk///f////DP///xj///////+HYP////+T//////9cdP7///////98//9w////QKP///////////9Un//n////8/9Q//////+n//9M////9wT/////SCj//////////0Sr/yT+t///+P////7//7PL//////////8w////HP7////btYi2LAAAAAlwSFlzAAAXEQAAFxEByibzPwAAEKpJREFUaEPtWg94XFVWv5PaPwtL3ZLG9i1T2WchGGOLmYrUJm1/WWWrYxxKoXb9Q8jD3WLQlMyO9F/Gs61gkqVxd1nXLWhKiZ3dwA5q05gtfW1VpF2TLbYouAK1WZuRKakJFRGknQJ7zr13JpNkwrb6fat+3/zy8ua9e8+9555zzz33nPee+h+AsC0yoF5EVb9qm0kERepLZOsw0qUQIOL7w5lkEiAAtq4UeArKnzPoqVNcGgz4OJKt82OxhU+opO+RQiTi4BnCjdk66SKqHKri6xDzA+2/7qypUgfj8Tj/7BMmmhPiJx80Vd9fMPPP7GXuUN3qSvJJBVQ4ctpUtcnIZOBKJZPJZkVVrDQDDO1/R3WR8qKqB+hXSfKVqauLnY6R8lmF83aSE0kpjxZ8VdeoAPdHilqFkITXrW5OyayP2TwYhRnqQaBc1ak4//1voNv+CjqU2haw1xqBW/jEpZOA374RCVYjy7PxlArB+8joCdHuo4j2MtQvI4PGDDDL0muwOnxuJXKrYDw+C1Xx+DWiGzYXn6hBqQZCL52ONWXVJNjMatTga7EqeCoYVKrm81t5lpL+ZtUR4W6rz21LP2MaaATEHBkUta3I2Sblvi71oA684nN5PfVqcov5vudVed40OsWUKtKD9iqecqVSTqvjtLo89KU82RhUg/kjLCKHE3nm1LGap8FeG0illE5ArZ4Tdid8HZqHDgoO8GWgebfLVsHrRik2GoVXXqA8U+xDCAjF4xml+texSYV4jpV6CcjEtQUqtjQM8wyLCWchhsBrkl2hQoaok144w6Xxn6BVyeQVyaRSEX+38xQPZrmh10Dryp+0jQbEj1GlODOw99TDiwsntSYWOy0jzaKe6tJBikR6lJrBVJV9ntfJVt+i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');
+}
+
+.propaganda-module_container .propaganda-module_propaganda .propaganda-module_header-container .propaganda-module_sign-up-btn {
+width: 140px !important;
+
+}
+
+.propaganda-module_container .propaganda-module_propaganda .propaganda-module_header-container .propaganda-module_xinghuo-btn {
+
+left: 160px !important;
+width: 140px !important;
+
+}
+
+.propaganda-content-module_propaganda-content .propaganda-content-module_activity-hosts {
+
+margin-bottom: 56px;
+}
+</style>
+
+</head> 
+<body>
+
+<div id="app">
+
+<!--<iframe class="signup" src="https://wuba.xinghuo.58.com/visualization/share/26715" width="600" height="400"></iframe>-->
+
+        <div id="button-left"
+        style="width:250px;height:100vh; display:flex;justify-content:center; position:fixed ;align-items: center;z-index:3;flex-direction: column;">
+        <div style="z-index:100">
+            <div class="man">
+
         </div>
+        </div>
+        <div style="height:28px">
+            <el-button id="baoming-right" size="mini" type="primary" hidden="true" @click="window.open('https://wuba.xinghuo.58.com/visualization/share/26715','_blank', 'width=800,height=600,left=200,top=100')">开始报名</el-button>
+        </div>
+    </div>
+    <div id="button-right"
+        style="width:250px;height:100vh; display:flex;justify-content:center;right:0px; position:fixed ;align-items: center;z-index:3;flex-direction: column;">
+        <div class="woman">
 
-        <script>
+        </div>
+        <div style="height:28px">
+            <el-button id="baoming-left" size="mini" type="primary" hidden="true" style="z-index:1" @click="window.open('https://wuba.xinghuo.58.com/visualization/share/26715','_blank', 'width=800,height=600,left=200,top=100')">开始报名
+            </el-button>
+        </div>
+    </div>
+<div id="xinghuo-activity">
+<header class="header-module_header_new items-center justify-center" id="header"
+    style="min-width: 1260px; background: transparent; position: absolute;">
+    <div class="flex items-center header-module_header_container">
+        <div class="flex-1"></div>
 
-  //   const { chart } = args;
+    </div>
+</header>
+<div class="absolute w-full propaganda-module_container">
+    <div class="propaganda-module_propaganda flex justify-center">
+        <div class="propaganda-module_header-container flex justify-center">
+            <span class="propaganda-module_header-font1"><span style="font-family:'SarunsHarryPotter'">MDC智能看板可视化大赛</span>
+           <span class="propaganda-module_header-font3" style="margin-left:260px !important;font-family:'SarunsHarryPotter'">——数据驱动业务决策</span>
+           </span>
+            
+            <span class="propaganda-module_header-font2" ><span style="font-size: 20px!important;font-weight: bold;color: #ffffff">通过可视化工具优化运营效率、提升业务洞察</span>
+            <ul>
+                <li>提升数据可视化能力，促进数据驱动决策</li>
+                <li>增强运营与业务线管理人员的数据分析意识</li>
+                <li>展示数据部门的数据支持能力，推动跨部门协作</li>
+            </ul>
+            </span>
 
+
+
+            <a  target="_blank" @click=" xtip.open({type: 'url',content: 'https://wuba.xinghuo.58.com/visualization/share/26715',title: '报名参赛',width: '800px',height: '360px',min: false,max: false,lock:true,closeBtn: true,});" 
+                class="ant-btn ant-btn-primary propaganda-module_sign-up-btn"><span>前往报名页面</span></a><a
+                href="https://wuba.xinghuo.58.com/visualization/share/26715"
+                target="_blank"
+                class="ant-btn ant-btn-primary propaganda-module_xinghuo-btn"><span>了解智能看板</span></a>
+            <div class="propaganda-module_steps flex"><a
+                    class="flex-1 flex justify-center propaganda-module_step  propaganda-module_no-allow">
+                    <div class="propaganda-module_step-container">
+                        <div class="flex">
+                            <div class="false propaganda-module_step-font1">报名参赛</div><img src="https://wos2.58cdn.com.cn/MnOjIhGfMnSn/xinghuobackend/29421c9bd3ee443f88ec60d351421a88.svg" style="margin-left: 12px;">
+                        </div><span class="false propaganda-module_step-font2">3.15-4.30</span>
+                    </div>
+                </a><a class="flex-1 flex justify-center propaganda-module_step  propaganda-module_no-allow">
+                    <div class="propaganda-module_step-container">
+                        <div class="flex">
+                            <div class="false propaganda-module_step-font1">提交作品</div><img src="https://wos2.58cdn.com.cn/MnOjIhGfMnSn/xinghuobackend/29421c9bd3ee443f88ec60d351421a88.svg" style="margin-left: 12px;">
+                        </div><span class="false propaganda-module_step-font2">4.20-4.30</span>
+                    </div>
+                </a><a class="flex-1 flex justify-center propaganda-module_step  propaganda-module_no-allow">
+                    <div class="propaganda-module_step-container">
+                        <div class="flex">
+                            <div class="false propaganda-module_step-font1">投票打榜</div><img src="https://wos2.58cdn.com.cn/MnOjIhGfMnSn/xinghuobackend/29421c9bd3ee443f88ec60d351421a88.svg" style="margin-left: 12px;">
+                        </div><span class="false propaganda-module_step-font2">5.01-5.15</span>
+                    </div>
+                </a><a class="flex-1 flex justify-center propaganda-module_step  propaganda-module_no-allow">
+                    <div class="propaganda-module_step-container">
+                        <div class="flex">
+                            <div class="false propaganda-module_step-font1">获奖名单</div><img src="https://wos2.58cdn.com.cn/MnOjIhGfMnSn/xinghuobackend/29421c9bd3ee443f88ec60d351421a88.svg" style="margin-left: 12px;">
+                        </div><span class="false propaganda-module_step-font2">5月末</span>
+                    </div>
+                </a></div>
+        </div>
+    </div>
+
+    <div class="propaganda-content-module_propaganda-content flex justify-center">
+        <div class="propaganda-content-module_propaganda-content-width flex flex-col items-center">
+            <div
+                class="propaganda-content-module_content-font1-container propaganda-content-module_activity-introduce-image">
+                <span class="propaganda-content-font1">大赛介绍</span>
+            </div>
+            <div class="propaganda-content-module_activity-introduce-container flex gap-16 w-full">
+                <div
+                    class="propaganda-content-module_activity-introduce  flex-1 flex items-center justify-center " >
+                    <div class="propaganda-content-module_activity-introduce-item flex justify-center" style="flex-wrap: wrap">
+                        <img src="https://wos2.58cdn.com.cn/MnOjIhGfMnSn/xinghuoconsole/assets_aa791b47c33f93fed30f01f42c0f9fe67e6c4697.png">
+                        <div style="margin-left: 20px;">
+                            <div class="propaganda-content-module_activity-introduce-title ">面向人群</div>
+                            <div class="propaganda-content-module_activity-introduce-detail ">
+                                HBG二租商,有制作报表/获取数据需求<br>的所有同事均可一键报名
+                               
+                            </div>
+                        </div>
+                        <div style="margin-top: 20px;">
+                            
+                            <div class="propaganda-content-module_activity-introduce-detail ">
+                                <ul>
+                                    <li>二租商大区运营、城市运营</li>
+                                    <li>二租商城市经理、区域及部门主管</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="propaganda-content-module_activity-introduce  flex-1 flex items-center justify-center ">
+                    <div class="propaganda-content-module_activity-introduce-item flex justify-center" style="flex-wrap: wrap">
+                        <img src="https://wos2.58cdn.com.cn/MnOjIhGfMnSn/xinghuoconsole/assets_a29f8bc2cd02b8e6c9b3b28d7e2558de228b92bd.png">
+                        <div style="margin-left: 20px;">
+                            <div class="propaganda-content-module_activity-introduce-title ">大赛数据<a
+                                    class="propaganda-content-module_download-data " target="_blank">查看</a>
+                            </div>
+                            <div class="propaganda-content-module_activity-introduce-detail ">
+                                组委会提供了一份虚拟数据供大家使用.<br>无需担心核心数据安全问题</div>
+                        </div>
+                       <div style="margin-top: 20px;">
+                            
+                            <div class="propaganda-content-module_activity-introduce-detail ">
+                                <ul>
+                                    <li>覆盖 大区/城市/部门/销售/公司 等各个层级的数据</li>
+                                    <li>覆盖所有已有指标,并可根据需要自由创建虚拟指标</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="propaganda-content-module_activity-introduce  flex-1 flex items-center justify-center ">
+                    <div class="propaganda-content-module_activity-introduce-item flex  justify-center" style="flex-wrap: wrap">
+                        <img src="https://wos2.58cdn.com.cn/MnOjIhGfMnSn/xinghuoconsole/assets_03d2c73a746c0a983e96aaa1b7e05047b8bf659e.png">
+                        <div style="margin-left: 20px;">
+                            <div class="propaganda-content-module_activity-introduce-title ">参赛作品</div>
+                            <div class="propaganda-content-module_activity-introduce-detail ">基于大赛提供的智能看板比赛页面制作<br>的完整的业务数据看板
+                            </div>
+                        </div>
+                              <div style="margin-top: 20px;">
+                            
+                            <div class="propaganda-content-module_activity-introduce-detail ">
+                                <ul>
+                                    <li>获奖作品将在系统优秀作品库中署名展示,可一键克隆</li>
+                                    <li>所有用户的作品均可一键复制迁移至正式环境中</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="propaganda-content-module_content-font1-container propaganda-content-module_activity-award-image">
+                <span class="propaganda-content-font1">奖项设置</span>
+            </div>
+            <div class="propaganda-content-module_activty-award-container ">
+                <div class="flex propaganda-content-module_gap-16">
+                    <div class="propaganda-content-module_activty-award-item flex-1 ">
+                        <div style="margin: 0px auto;width: 210px; height: 157px;">
+                            <svg width="250" height="250" style="position:relative;top:-50px;left:-20px">
+                                <use xlink:href="#present"></use>
+                            </svg>
+                        </div>
+
+                        <div class="propaganda-content-module_activty-award-item-title ">一等奖</div>
+                        <div class="propaganda-content-module_activty-award-item-detail ">XXX xxx xxx
+                        </div>
+                    </div>
+                    <div class="propaganda-content-module_activty-award-item flex-1 ">
+                        <div style="margin: 0px auto;width: 210px; height: 157px;">
+                            <svg width="250" height="250" style="position:relative;top:-50px;left:-20px">
+                                <use xlink:href="#present"></use>
+                            </svg>
+                        </div>
+                        <div class="propaganda-content-module_activty-award-item-title ">二等奖</div>
+                        <div class="propaganda-content-module_activty-award-item-detail ">XXX xxx xxx</div>
+                    </div>
+                    <div class="propaganda-content-module_activty-award-item flex-1 ">
+                        <div style="margin: 0px auto;width: 210px; height: 157px;">
+                            <svg width="250" height="250" style="position:relative;top:-50px;left:-20px">
+                                <use xlink:href="#present"></use>
+                            </svg>
+                        </div>
+                        <div class="propaganda-content-module_activty-award-item-title ">三等奖</div>
+                        <div class="propaganda-content-module_activty-award-item-detail ">XXX xxx xxx</div>
+                    </div>
+                </div>
+                <div class="propaganda-content-module_prize-label ">特色奖</div>
+                <div class="flex propaganda-content-module_gap-16">
+                    <div class="propaganda-content-module_activty-award-item  flex-1 ">
+                        <div style="margin: 0px auto;width: 210px;height: 120px;">
+                            <svg width="150" height="150" style="position:relative;top:-35px;left:30px">
+                                <use xlink:href="#present"></use>
+                            </svg>
+                        </div>
+                        <div class="propaganda-content-module_activty-prize-item-title ">xxx xxx
+                        </div>
+                    </div>
+                    <div class="propaganda-content-module_activty-award-item  flex-1 ">
+                        <div style="margin: 0px auto;width: 210px;height: 120px;">
+                            <svg width="150" height="150" style="position:relative;top:-35px;left:30px">
+                                <use xlink:href="#present"></use>
+                            </svg>
+                        </div>
+                        <div class="propaganda-content-module_activty-prize-item-title ">xxx xxx
+                        </div>
+                    </div>
+                    <div class="propaganda-content-module_activty-award-item  flex-1 ">
+                        <div style="margin: 0px auto;width: 210px;height: 120px;">
+                            <svg width="150" height="150" style="position:relative;top:-35px;left:30px">
+                                <use xlink:href="#present"></use>
+                            </svg>
+                        </div>
+                        <div class="propaganda-content-module_activty-prize-item-title ">xxx xxx</div>
+                    </div>
+                    <div class="propaganda-content-module_activty-award-item  flex-1 ">
+                        <div style="margin: 0px auto;width: 210px;height: 120px;">
+                            <svg width="150" height="150" style="position:relative;top:-35px;left:30px">
+                                <use xlink:href="#present"></use>
+                            </svg>
+                        </div>
+                        <div class="propaganda-content-module_activty-prize-item-title ">xxx xxx</div>
+                    </div>
+                </div>
+                <div class="propaganda-content-module_prize-label ">纪念奖</div>
+                <div class="propaganda-content-module_activty-award-item  flex-1 ">
+                    <div style="height: 120px;"><img src="https://wos2.58cdn.com.cn/MnOjIhGfMnSn/xinghuoconsole/assets_83ef0a3ac47c3d8095ea266c39ce0606014ee8f5.png" style="margin: 0px auto; width: 164px; height: 118px;">
+                    </div>
+                    <div class="propaganda-content-module_activty-prize-item-title  mb-40">精美礼品</div>
+                </div>
+            </div>
+            <div
+                class="propaganda-content-module_content-font1-container propaganda-content-module_activity-time-image">
+                <span class="propaganda-content-font1">2025赛程安排</span>
+            </div>
+            <div class="propaganda-content-module_activity-time-container flex flex-col">
+                <div class="flex  items-center flex-1">
+                    <div class="flex-1 flex items-center justify-center  ">
+                        <div>
+                            <div class="propaganda-content-module_activity-time-label false">报名参赛</div>
+                            <span class="propaganda-content-module_activity-time-time false">3.15-4.30</span>
+                        </div>
+                    </div>
+                    <div class="propaganda-content-module_time-border"></div>
+                    <div class="flex-1 flex items-center justify-center  ">
+                        <div>
+                            <div class="propaganda-content-module_activity-time-label false">制作看板</div>
+                            <span class="propaganda-content-module_activity-time-time false">4.01-4.30</span>
+                        </div>
+                    </div>
+                    <div class="propaganda-content-module_time-border"></div>
+                    <div class="flex-1 flex items-center justify-center  ">
+                        <div>
+                            <div class="propaganda-content-module_activity-time-label false">提交作品</div>
+                            <span class="propaganda-content-module_activity-time-time false">4.20-4.30</span>
+                        </div>
+                    </div>
+                    <div class="propaganda-content-module_time-border"></div>
+                    <div class="flex-1 flex items-center justify-center  ">
+                        <div>
+                            <div class="propaganda-content-module_activity-time-label false">投票打榜</div>
+                            <span class="propaganda-content-module_activity-time-time false">5.01-5.15</span>
+                        </div>
+                    </div>
+                    <div class="propaganda-content-module_time-border"></div>
+                    <div class="flex-1 flex items-center justify-center  ">
+                        <div>
+                            <div class="propaganda-content-module_activity-time-label false">评委评审</div>
+                            <span class="propaganda-content-module_activity-time-time false">5.16-5.30</span>
+                        </div>
+                    </div>
+                    <div class="propaganda-content-module_time-border"></div>
+                    <div class="flex-1 flex items-center justify-center  ">
+                        <div>
+                            <div
+                                class="propaganda-content-module_activity-time-label propaganda-content-module_time-active-label">
+                                公布结果</div>
+                            <span class="propaganda-content-module_activity-time-time propaganda-content-module_time-active-detail">5月末</span>
+                        </div>
+                    </div>
+                </div><img src="https://wos2.58cdn.com.cn/MnOjIhGfMnSn/xinghuoconsole/assets_91395801a4faa7c1491c0a5ac166572a74c9cc86.png">
+            </div>
+
+
+            <div
+                class="propaganda-content-module_content-font1-container propaganda-content-module_activity-time-image progress">
+                <span class="propaganda-content-font1">比赛流程</span>
+            </div>
+            <div class="propaganda-content-module_activity-score flex items-center justify-center"
+                style="height:350px !important">
+                <div class="propaganda-content-module_activity-score-content">
+
+                    <p>
+
+                    <ul>
+                        <li><span class="big">初赛</span></li>
+                        <ul>
+                            <li>提交作品：提供比赛专用智能看板系统，参赛者按照规定的时间在比赛系统提交自己的智能看板作品。</li>
+                            <li>作品展示：通过线上平台进行初步展示。</li>
+                            <li>线上投票：占初赛总分30%，通过给定的线上方式，用户可以拉人投票（仅限企业内部人员）</li>
+                            <li>评审打分：占初赛总分70%，评委根据评分标准进行打分。</li>
+                            <li>结果公布：根据线上投票及评审打分，给出最终结果。</li>
+
+                        </ul>
+                        </p>
+                        <p>
+                            <li><span class="big">决赛</span></li>
+                        <ul>
+                            <li>视频展示：入围选手/团队对参赛作品拍摄讲解视频，包括作品整体介绍，实际应用场景，创新创意点等等。</li>
+                            <li>最终评审：评委根据评分标准对参赛作品进行打分，综合初赛成绩和决赛表现，评出各个奖项获得者。</li>
+                        </ul>
+                    </ul>
+
+                    </p>
+                </div>
+            </div>
+            <div
+                class="propaganda-content-module_content-font1-container propaganda-content-module_activity-score-image">
+                <span class="propaganda-content-font1">评分规则</span>
+            </div>
+            <div class="propaganda-content-module_activity-score flex items-center justify-center"
+                style="height:200px !important">
+                <div style="width:800px">
+
+
+                    <div class="propaganda-content-module_activity-score-content">
+                        （1）实用性：作品能够解决实际业务问题，对业务决策及洞察有实质性帮助</div>
+                    <div class="propaganda-content-module_activity-score-content">
+                        （2）创新性：作品是否具有新颖的创意和独特的视角。</div>
+                    <div class="propaganda-content-module_activity-score-content">
+                        （3）功能性：作品充分利用智能看板的各项功能，使用方式合理且高效。</div>
+                    <div class="propaganda-content-module_activity-score-content">
+                        （4）美观性：看板设计美观大方，色彩搭配合理，图表清晰易懂。</div>
+                    <div class="propaganda-content-module_activity-score-content">
+                        （5）讲解效果：视频展示讲解时，表达清晰，逻辑清楚。</div>
+
+                </div>
+            </div>
+            <div
+                class="propaganda-content-module_content-font1-container propaganda-content-module_activity-hosts-image">
+                <span class="propaganda-content-font1">主办方</span>
+            </div>
+            <div class="propaganda-content-module_activity-hosts flex items-center">
+                <div class="flex items-center justify-center w-full ">
+                    <div class="flex items-center " style="flex-direction: column!important;width:400px">
+                        <img data-v-43a49a3e="" style="width:60px;height:43px" src="data:image/png;base64,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" alt="" class="mdcimg mdcimg_media">
+                        <div class="propaganda-content-module_activity-hosts-font" style="margin-top:5px">
+                            销售管理决策中心</div>
+                    </div>
+                    <div style="text-align:center; align-items :baseline!important;width:400px;font-size:20px">
+                        <span style="font-family:'Impacted2.0';font-size:42px;color:#319eff">HBG</span>-<span>数据运营部</span>-<span>数据应用部</span>
+
+                    </div>
+                    <div style="text-align:center; align-items :baseline!important;width:400px;font-size:20px">
+                        <span style="font-family:'Impacted2.0';font-size:42px;color:#319eff">HBG</span>-<span>二手房策略运营部</span>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="propaganda-module_statement flex items-center justify-center">
+        <div>
+            <div class="propaganda-module_statement-title ">大赛声明</div>
+            <div class="propaganda-module_statement-content ">
+                您参加本次比赛的行为视为同意并接受本规则约束。如您不同意本规则任一部分内容，请您立即停止参加本次比赛。<br>1、 您应当以真实身份注册账号，应当保证在注册当时所提供的信息、资料的真实性、完整性、有效性，并且对其承担相应的法律责任。<br>2、 参赛作品必须保证原创性，不侵犯任何第三方知识产权或者其他权利，不违反任何中华人民共和国的有关法律法规，不存在赛事组委会认为不适当的内容。<br>3、 赛事所提供的数据仅供参赛使用，不得用于其他任何目的；<br>4、 参赛作品的知识产权归参赛者所有。赛事组委会（包括其继受者、关联方）有权将参赛作品、作品相关、作者信息用于授权网站浏览及下载、商业宣传等活动项目。<br>5、 赛事组委会有权根据赛事进展调整日期，修订规则；赛事组委会拥有对赛事规则的最终解释权。
+            </div>
+        </div>
+    </div>
+    <div class="propaganda-module_footer flex items-center justify-center">
+        <div>
+            <div class="propaganda-module_footer-font">微信扫码关注</div><img src="https://wos2.58cdn.com.cn/MnOjIhGfMnSn/xinghuobackend/6496ad81b1c24409b66b335e52b0f582.svg" style="margin: 0px auto;">
+            <div class="propaganda-module_footer-font mt-10">邮箱：xh_feedback@58.com</div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<svg class="hidden">
+<symbol id="present">
+<svg node-id="1" sillyvg="true" version="1.1" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs node-id="70">
+        <linearGradient gradientUnits="objectBoundingBox" id="SVGID_1_" node-id="8" spreadMethod="pad"
+            x1="399.8748" x2="399.8748" y1="523.4023" y2="673.0411">
+            <stop offset="0" stop-color="#d4dbe5" />
+            <stop offset="1" stop-color="#ffffff" />
+        </linearGradient>
+        <linearGradient gradientUnits="objectBoundingBox" id="SVGID_2_" node-id="12" spreadMethod="pad"
+            x1="391.9516" x2="391.9516" y1="452.4239" y2="138.0732">
+            <stop offset="0.1119" stop-color="#ffffff" />
+            <stop offset="0.9205" stop-color="#e2e6ed" />
+        </linearGradient>
+        <linearGradient gradientUnits="objectBoundingBox" id="SVGID_3_" node-id="16" spreadMethod="pad"
+            x1="148.217" x2="148.217" y1="377.371" y2="346.9859">
+            <stop offset="0.1119" stop-color="#f1f3f6" />
+            <stop offset="0.9205" stop-color="#d2d9e3" />
+        </linearGradient>
+        <linearGradient gradientUnits="objectBoundingBox" id="SVGID_4_" node-id="20" spreadMethod="pad"
+            x1="599.8289" x2="599.8289" y1="290.8713" y2="247.744">
+            <stop offset="0.1119" stop-color="#f1f3f6" />
+            <stop offset="0.9205" stop-color="#d2d9e3" />
+        </linearGradient>
+        <linearGradient gradientUnits="objectBoundingBox" id="SVGID_5_" node-id="24" spreadMethod="pad"
+            x1="-8309.687" x2="-8309.687" y1="7437.0586" y2="7412.554">
+            <stop offset="0.1119" stop-color="#f1f3f6" />
+            <stop offset="0.9205" stop-color="#d2d9e3" />
+        </linearGradient>
+        <linearGradient gradientUnits="objectBoundingBox" id="SVGID_6_" node-id="29" spreadMethod="pad"
+            x1="281.6625" x2="526.7296" y1="377.747" y2="622.814">
+            <stop offset="0.0884" stop-color="#ebeef2" />
+            <stop offset="1" stop-color="#d2d9e3" />
+        </linearGradient>
+        <linearGradient gradientUnits="objectBoundingBox" id="SVGID_7_" node-id="33" spreadMethod="pad"
+            x1="562.0685" x2="246.3236" y1="385.4082" y2="385.4082">
+            <stop offset="0" stop-color="#d4dbe5" />
+            <stop offset="1" stop-color="#ffffff" />
+        </linearGradient>
+        <linearGradient gradientUnits="objectBoundingBox" id="SVGID_8_" node-id="37" spreadMethod="pad"
+            x1="246.3236" x2="562.0685" y1="326.3502" y2="326.3502">
+            <stop offset="0.0884" stop-color="#ebeef2" />
+            <stop offset="1" stop-color="#d2d9e3" />
+        </linearGradient>
+        <linearGradient gradientUnits="objectBoundingBox" id="SVGID_9_" node-id="41" spreadMethod="pad"
+            x1="445.4395" x2="363.1346" y1="475.892" y2="475.892">
+            <stop offset="0.1119" stop-color="#cad5e2" />
+            <stop offset="0.9205" stop-color="#d2d9e3" />
+        </linearGradient>
+        <linearGradient gradientUnits="objectBoundingBox" id="SVGID_10_" node-id="46" spreadMethod="pad"
+            x1="569.8073" x2="237.8564" y1="388.2306" y2="388.2306">
+            <stop offset="0.1119" stop-color="#cad5e2" />
+            <stop offset="0.9205" stop-color="#d2d9e3" />
+        </linearGradient>
+        <linearGradient gradientUnits="objectBoundingBox" id="SVGID_11_" node-id="51" spreadMethod="pad"
+            x1="249.753" x2="561.1889" y1="274.5812" y2="274.5812">
+            <stop offset="0.0884" stop-color="#ebeef2" />
+            <stop offset="1" stop-color="#d2d9e3" />
+        </linearGradient>
+        <linearGradient gradientUnits="objectBoundingBox" id="SVGID_12_" node-id="55" spreadMethod="pad"
+            x1="382.3452" x2="426.8663" y1="317.7616" y2="317.7616">
+            <stop offset="0.1119" stop-color="#cad5e2" />
+            <stop offset="0.9205" stop-color="#d2d9e3" />
+        </linearGradient>
+    </defs>
+    <g node-id="183">
+        <g node-id="194">
+            <g node-id="195">
+                <path
+                    d="M 694.40 598.20 L 694.10 601.60 L 693.20 605.00 L 691.70 608.40 L 689.60 611.80 L 686.60 615.40 L 682.70 619.20 L 677.80 623.10 L 671.70 627.10 L 664.50 631.10 L 657.30 634.60 L 640.00 641.60 L 629.70 645.00 L 616.10 649.00 L 600.90 652.90 L 584.10 656.60 L 567.20 659.80 L 549.00 662.80 L 529.40 665.40 L 509.80 667.70 L 489.10 669.50 L 467.40 671.10 L 445.70 672.10 L 423.20 672.80 L 399.90 673.00 L 376.60 672.80 L 354.10 672.10 L 332.30 671.10 L 310.60 669.50 L 289.90 667.70 L 270.30 665.40 L 250.70 662.80 L 232.50 659.80 L 215.70 656.60 L 198.80 652.90 L 183.60 649.00 L 170.00 645.00 L 159.70 641.60 L 150.60 638.10 L 135.30 631.10 L 128.00 627.10 L 122.00 623.10 L 117.10 619.20 L 113.10 615.40 L 110.20 611.80 L 108.00 608.40 L 106.50 605.00 L 105.60 601.60 L 105.30 598.20 L 105.60 594.80 L 106.50 591.50 L 108.00 588.10 L 110.20 584.60 L 113.10 581.10 L 117.10 577.30 L 122.00 573.40 L 128.00 569.40 L 135.30 565.30 L 150.60 558.40 L 170.00 551.40 L 183.60 547.40 L 198.80 543.50 L 215.70 539.80 L 232.50 536.60 L 250.70 533.70 L 270.30 531.00 L 289.90 528.80 L 310.60 526.90 L 332.30 525.40 L 354.10 524.30 L 376.60 523.60 L 399.90 523.40 L 423.20 523.60 L 445.70 524.30 L 467.40 525.40 L 489.10 526.90 L 509.80 528.80 L 529.40 531.00 L 549.00 533.70 L 567.20 536.60 L 584.10 539.80 L 600.90 543.50 L 616.10 547.40 L 629.70 551.40 L 640.00 554.90 L 657.30 561.80 L 664.50 565.30 L 671.70 569.40 L 677.80 573.40 L 682.70 577.30 L 686.60 581.10 L 689.60 584.60 L 691.70 588.10 L 693.20 591.50 L 694.10 594.80 L 694.40 598.20 Z"
+                    fill="url(#SVGID_1_)" fill-rule="nonzero" group-id="2,13,14" node-id="151" stroke="none"
+                    target-height="149.59998" target-width="589.10004" target-x="105.3" target-y="523.4" />
+                <path
+                    d="M 569.20 274.60 L 569.20 155.30 L 545.20 138.10 L 440.70 179.70 L 440.70 301.40 L 416.70 301.40 L 416.70 267.80 L 371.00 267.80 L 371.00 299.30 L 349.10 299.30 L 349.10 240.50 L 309.60 240.50 L 309.60 344.70 L 298.70 344.70 L 298.70 161.20 L 205.50 161.20 L 205.50 329.60 L 158.00 329.60 L 158.00 392.00 L 130.70 392.00 L 130.70 452.40 L 653.20 452.40 L 653.20 274.60 Z"
+                    fill="url(#SVGID_2_)" fill-rule="nonzero" group-id="2,13,14" hidden="true" node-id="153"
+                    stroke="none" target-height="314.3" target-width="522.5" target-x="130.7" target-y="138.1"
+                    visibility="hidden" />
+                <path
+                    d="M 163.40 362.20 L 163.20 365.00 L 162.50 367.50 L 161.30 369.80 L 159.80 372.00 L 158.00 373.80 L 155.90 375.30 L 153.50 376.40 L 151.00 377.10 L 148.20 377.40 L 145.40 377.10 L 142.90 376.40 L 140.60 375.30 L 138.40 373.80 L 136.60 372.00 L 135.10 369.80 L 134.00 367.50 L 133.30 365.00 L 133.00 362.20 L 133.30 359.40 L 134.00 356.90 L 135.10 354.50 L 136.60 352.40 L 138.40 350.60 L 140.60 349.10 L 142.90 347.90 L 145.40 347.20 L 148.20 347.00 L 151.00 347.20 L 153.50 347.90 L 155.90 349.10 L 158.00 350.60 L 159.80 352.40 L 161.30 354.50 L 162.50 356.90 L 163.20 359.40 L 163.40 362.20 Z"
+                    fill="url(#SVGID_3_)" fill-rule="nonzero" group-id="2,13,14" node-id="155" stroke="none"
+                    target-height="30.399994" target-width="30.399994" target-x="133" target-y="347" />
+                <path
+                    d="M 621.40 269.30 L 621.20 272.30 L 619.70 277.70 L 618.40 280.20 L 616.30 283.20 L 613.70 285.80 L 610.70 287.90 L 608.20 289.20 L 602.80 290.70 L 599.80 290.90 L 596.80 290.70 L 591.40 289.20 L 588.90 287.90 L 585.90 285.80 L 583.40 283.20 L 581.20 280.20 L 579.10 275.10 L 578.50 272.30 L 578.30 269.30 L 579.10 263.50 L 581.20 258.40 L 583.40 255.40 L 585.90 252.80 L 588.90 250.70 L 591.40 249.40 L 596.80 248.00 L 599.80 247.80 L 602.80 248.00 L 608.20 249.40 L 610.70 250.70 L 613.70 252.80 L 616.30 255.40 L 618.40 258.40 L 619.70 260.90 L 621.20 266.30 L 621.40 269.30 Z"
+                    fill="url(#SVGID_4_)" fill-rule="nonzero" group-id="2,13,14" node-id="157" stroke="none"
+                    target-height="43.09999" target-width="43.100037" target-x="578.3" target-y="247.8" />
+                <path
+                    d="M 590.50 576.10 L 589.80 580.40 L 587.60 584.00 L 584.50 586.70 L 582.60 587.60 L 578.30 588.40 L 574.00 587.60 L 570.40 585.50 L 567.70 582.30 L 566.20 578.30 L 566.00 576.10 L 566.20 573.90 L 566.80 571.80 L 568.90 568.20 L 572.10 565.50 L 574.00 564.60 L 578.30 563.90 L 582.60 564.60 L 586.20 566.70 L 588.80 569.90 L 589.80 571.80 L 590.50 576.10 Z"
+                    fill="url(#SVGID_5_)" fill-rule="nonzero" group-id="2,13,14" node-id="159" stroke="none"
+                    target-height="24.5" target-width="24.5" target-x="566" target-y="563.9" />
+            </g>
+            <g node-id="196">
+                <path
+                    d="M 535.40 604.80 L 273.00 604.80 L 267.00 604.00 L 264.20 603.10 L 259.20 600.10 L 255.20 596.10 L 252.30 591.10 L 250.70 585.50 L 250.50 582.40 L 250.50 408.90 L 557.90 408.90 L 557.90 582.40 L 557.70 585.50 L 557.10 588.40 L 554.80 593.70 L 553.20 596.10 L 549.20 600.10 L 544.20 603.10 L 541.40 604.00 L 535.40 604.80 Z"
+                    fill="url(#SVGID_6_)" fill-rule="nonzero" group-id="2,13,15" node-id="164" stroke="none"
+                    target-height="195.9" target-width="307.40002" target-x="250.5" target-y="408.9" />
+                <path d="M 246.30 347.00 L 562.10 347.00 L 562.10 423.80 L 246.30 423.80 Z"
+                    fill="url(#SVGID_7_)" fill-rule="nonzero" group-id="2,13,15" node-id="166" stroke="none"
+                    target-height="76.79999" target-width="315.8" target-x="246.3" target-y="347" />
+                <path d="M 562.10 347.00 L 246.30 347.00 L 290.70 305.70 L 518.60 305.70 Z"
+                    fill="url(#SVGID_8_)" fill-rule="nonzero" group-id="2,13,15" node-id="168" stroke="none"
+                    target-height="41.299988" target-width="315.8" target-x="246.3" target-y="305.7" />
+                <path d="M 363.10 346.90 L 445.40 346.90 L 445.40 604.90 L 363.10 604.90 Z"
+                    fill="url(#SVGID_9_)" fill-rule="nonzero" group-id="2,13,15" node-id="170" stroke="none"
+                    target-height="258.00003" target-width="82.29999" target-x="363.1" target-y="346.9" />
+                <path d="M 363.10 322.20 L 445.40 322.20 L 445.40 346.90 L 363.10 346.90 Z" fill="#bbcbda"
+                    fill-rule="nonzero" group-id="2,13,15" node-id="172" stroke="none" target-height="24.699982"
+                    target-width="82.29999" target-x="363.1" target-y="322.2" />
+                <path
+                    d="M 237.90 428.40 L 270.80 432.00 L 297.80 460.40 L 305.10 438.60 L 312.10 421.10 L 316.40 411.40 L 321.20 401.50 L 326.50 391.50 L 332.30 381.60 L 338.50 372.20 L 342.90 366.20 L 352.30 355.50 L 357.40 350.70 L 362.60 346.60 L 367.90 343.20 L 386.60 332.30 L 403.70 323.00 L 415.10 328.20 L 426.90 334.20 L 440.40 342.20 L 447.30 346.80 L 454.00 351.80 L 460.30 357.10 L 466.00 362.60 L 469.40 366.60 L 472.40 370.50 L 474.80 374.50 L 487.00 397.50 L 493.90 411.70 L 500.40 427.60 L 503.80 437.20 L 510.60 459.70 L 524.50 444.80 L 536.50 431.30 L 569.80 428.00 L 567.60 415.60 L 563.90 402.50 L 561.20 395.00 L 555.10 381.40 L 548.40 370.30 L 544.60 364.90 L 540.30 359.70 L 535.50 354.50 L 530.30 349.70 L 524.50 345.20 L 518.20 341.00 L 513.30 338.20 L 502.20 333.30 L 496.10 331.30 L 474.70 326.90 L 453.50 323.10 L 434.10 320.10 L 403.40 316.00 L 376.60 319.60 L 343.70 324.50 L 328.20 327.20 L 315.50 329.90 L 307.60 332.40 L 298.90 336.30 L 293.40 339.00 L 287.00 342.90 L 278.20 349.40 L 273.40 353.80 L 269.00 358.40 L 264.40 364.00 L 259.70 370.60 L 256.60 375.60 L 250.40 387.70 L 244.80 402.00 L 240.00 418.60 L 237.90 428.40 Z"
+                    fill="url(#SVGID_10_)" fill-rule="nonzero" group-id="2,13,15" node-id="174" stroke="none"
+                    target-height="144.4" target-width="331.9" target-x="237.9" target-y="316" />
+                <path
+                    d="M 273.30 261.00 L 273.50 267.40 L 274.30 272.10 L 276.20 279.00 L 279.60 286.90 L 282.00 290.90 L 285.10 295.10 L 288.60 298.90 L 292.80 302.60 L 298.00 306.20 L 302.00 308.50 L 306.60 310.70 L 311.80 312.70 L 317.70 314.60 L 325.60 315.50 L 334.70 316.00 L 353.80 316.10 L 372.70 315.30 L 404.90 312.50 L 420.30 314.60 L 436.30 316.20 L 455.20 317.10 L 465.00 317.20 L 481.20 316.20 L 492.90 314.40 L 498.50 313.00 L 503.30 311.30 L 507.50 309.30 L 512.10 306.40 L 516.10 303.40 L 519.70 300.10 L 525.70 293.00 L 528.10 289.30 L 531.20 283.60 L 533.60 278.30 L 535.40 273.00 L 537.50 264.50 L 538.30 259.00 L 543.10 262.60 L 549.70 268.90 L 555.30 276.20 L 558.80 283.30 L 560.10 287.10 L 560.80 291.20 L 561.10 295.60 L 560.70 298.80 L 559.80 302.40 L 558.20 306.40 L 556.10 310.10 L 553.30 314.10 L 549.60 318.20 L 545.60 321.90 L 540.60 325.60 L 534.80 329.10 L 525.20 333.60 L 519.50 335.50 L 507.00 338.60 L 500.20 339.60 L 492.70 340.30 L 484.40 340.70 L 476.40 340.60 L 467.70 340.00 L 458.30 339.00 L 447.90 337.30 L 438.00 335.30 L 427.30 332.70 L 415.70 329.40 L 403.20 325.30 L 397.60 324.70 L 394.50 324.80 L 383.00 330.00 L 369.80 334.40 L 361.90 336.50 L 352.60 338.30 L 339.40 339.90 L 324.70 340.20 L 317.00 339.70 L 308.90 338.80 L 301.50 337.50 L 288.50 334.10 L 282.80 332.00 L 277.10 329.50 L 272.00 326.80 L 267.50 323.90 L 263.50 320.80 L 259.80 317.30 L 256.70 313.70 L 254.20 310.00 L 252.20 306.10 L 250.80 301.90 L 250.00 297.70 L 249.80 293.20 L 250.30 288.60 L 251.30 284.10 L 253.00 279.40 L 255.50 274.50 L 258.80 269.20 L 261.40 266.60 L 263.90 264.60 L 268.60 262.20 L 273.30 261.00 Z"
+                    fill="#bbcbda" fill-rule="nonzero" group-id="2,13,15" node-id="176" stroke="none"
+                    target-height="81.70001" target-width="311.3" target-x="249.8" target-y="259" />
+                <path
+                    d="M 404.70 314.30 L 407.90 314.30 L 413.40 312.60 L 419.50 308.90 L 425.30 303.70 L 431.20 296.40 L 437.60 286.20 L 440.90 279.90 L 446.80 266.40 L 449.70 260.70 L 453.00 255.20 L 456.60 249.90 L 460.50 245.10 L 464.80 240.70 L 468.30 237.60 L 471.90 234.90 L 479.70 230.50 L 483.80 228.90 L 488.10 227.70 L 492.70 227.00 L 497.40 226.70 L 502.10 226.80 L 507.00 227.60 L 512.30 228.90 L 517.80 230.90 L 523.00 233.20 L 528.50 236.30 L 534.40 240.20 L 540.60 245.00 L 544.30 248.30 L 547.60 251.70 L 550.30 255.30 L 552.70 259.00 L 556.30 266.50 L 558.30 272.10 L 560.50 282.40 L 561.00 286.70 L 561.10 295.60 L 560.10 291.40 L 559.00 288.40 L 557.30 285.20 L 554.90 281.50 L 550.50 276.90 L 547.60 274.60 L 544.40 272.60 L 540.60 270.80 L 536.00 269.10 L 531.30 267.90 L 525.80 267.00 L 519.30 266.60 L 512.80 266.60 L 505.20 267.20 L 496.40 268.50 L 490.50 269.90 L 485.50 271.60 L 481.30 273.40 L 473.70 277.70 L 470.80 280.00 L 466.80 283.80 L 454.90 298.30 L 451.90 301.20 L 443.10 308.90 L 438.00 312.90 L 432.40 316.60 L 428.40 318.80 L 424.10 320.60 L 419.40 322.10 L 415.90 322.80 L 408.10 323.30 L 403.80 323.00 L 391.90 323.30 L 388.40 323.20 L 384.90 322.60 L 381.10 321.50 L 377.30 319.80 L 372.80 317.00 L 368.20 313.60 L 362.50 308.50 L 356.50 302.70 L 341.40 286.20 L 334.30 280.20 L 330.00 277.10 L 325.50 274.40 L 320.40 271.90 L 314.80 269.80 L 310.50 268.60 L 300.90 267.10 L 295.50 266.80 L 290.30 267.00 L 284.70 267.70 L 278.60 268.90 L 272.10 270.70 L 263.30 275.20 L 257.20 279.80 L 253.40 284.00 L 251.40 287.00 L 249.80 291.10 L 251.70 279.90 L 253.20 274.80 L 257.00 264.60 L 261.50 256.00 L 264.30 251.80 L 267.50 247.70 L 271.20 243.60 L 275.30 239.90 L 279.90 236.50 L 285.10 233.40 L 289.20 231.40 L 298.50 228.20 L 303.90 227.10 L 310.30 226.20 L 316.00 225.90 L 321.30 226.00 L 326.00 226.50 L 330.70 227.50 L 335.10 228.90 L 339.00 230.50 L 342.60 232.40 L 347.10 235.40 L 351.00 238.70 L 354.50 242.30 L 357.70 246.20 L 362.70 254.00 L 365.70 260.10 L 367.90 265.40 L 376.10 289.10 L 378.60 294.70 L 382.60 301.70 L 384.90 304.90 L 387.50 307.80 L 390.30 310.30 L 393.40 312.20 L 395.90 313.30 L 398.60 314.00 L 401.50 314.40 L 404.70 314.30 Z"
+                    fill="url(#SVGID_11_)" fill-rule="nonzero" group-id="2,13,15" node-id="178" stroke="none"
+                    target-height="97.399994" target-width="311.3" target-x="249.8" target-y="225.9" />
+                <path
+                    d="M 413.70 331.70 L 393.10 331.50 L 390.90 330.90 L 388.80 329.90 L 385.40 327.00 L 384.10 325.20 L 383.20 323.10 L 382.60 320.90 L 382.30 318.60 L 382.60 314.60 L 383.20 312.40 L 384.10 310.30 L 385.40 308.50 L 388.80 305.60 L 390.90 304.70 L 393.10 304.10 L 395.50 303.80 L 416.10 304.10 L 418.30 304.70 L 420.40 305.60 L 422.20 306.90 L 425.10 310.30 L 426.00 312.40 L 426.60 314.60 L 426.90 317.00 L 426.60 320.90 L 426.00 323.10 L 425.10 325.20 L 422.20 328.60 L 420.40 329.90 L 418.30 330.90 L 416.10 331.50 L 413.70 331.70 Z"
+                    fill="url(#SVGID_12_)" fill-rule="nonzero" group-id="2,13,15" node-id="180" stroke="none"
+                    target-height="27.900024" target-width="44.600006" target-x="382.3" target-y="303.8" />
+            </g>
+        </g>
+    </g>
+</svg>
+</symbol>
+</svg>
+
+
+
+
+
+</body>
+
+<script type="text/javascript">
 
 const app = new Vue({
-    //import '../theme-chalk/index.css',
-    el: '#app',
-    data: {
-        active_tab: 'first'
-    },
-    mounted() {
-        this.drawTab1Chart();
-
-       // var origin_data = []
-       // for (let i = 0; i < chart.data.length; i++) {
-       //     origin_data.push(
-       //         {
-       //             index: i,
-       //             company: chart.data[i][2],
-       //             store: chart.data[i][3],
-       //             value: [chart.data[i][0], chart.data[i][1], chart.data[i][4]]
-       //         }
-       //     )
-       // }
-       // console.log(origin_data)
-    },
-    methods: {
-
-        drawTab1Chart() {
-         var mychart1 = echarts.init(document.getElementById('chart1'), null, { renderer: 'canvas' })
-
-
-            mychart1.setOption(getOption1())
-            // getOption 为示例，您不需要关心具体作图细节
-            function getOption1() {
-                // 取出数据
-
-                var data = [
-                    { name: '海门', value: 9 },
-                    { name: '鄂尔多斯', value: 12 },
-                    { name: '招远', value: 12 },
-                    { name: '舟山', value: 12 },
-                    { name: '齐齐哈尔', value: 14 },
-                    { name: '盐城', value: 15 },
-                    { name: '赤峰', value: 16 },
-                    { name: '青岛', value: 18 },
-                    { name: '乳山', value: 18 },
-                    { name: '金昌', value: 19 },
-                    { name: '泉州', value: 21 },
-                    { name: '莱西', value: 21 },
-                    { name: '日照', value: 21 },
-                    { name: '胶南', value: 22 },
-                    { name: '南通', value: 23 },
-                    { name: '拉萨', value: 24 },
-                    { name: '云浮', value: 24 },
-                    { name: '梅州', value: 25 },
-                    { name: '文登', value: 25 },
-                    { name: '上海', value: 25 },
-                    { name: '攀枝花', value: 25 },
-                    { name: '威海', value: 25 },
-                    { name: '承德', value: 25 },
-                    { name: '厦门', value: 26 },
-                    { name: '汕尾', value: 26 },
-                    { name: '潮州', value: 26 },
-                    { name: '丹东', value: 27 },
-                    { name: '太仓', value: 27 },
-                    { name: '曲靖', value: 27 },
-                    { name: '烟台', value: 28 },
-                    { name: '福州', value: 29 },
-                    { name: '瓦房店', value: 30 },
-                    { name: '即墨', value: 30 },
-                    { name: '抚顺', value: 31 },
-                    { name: '玉溪', value: 31 },
-                    { name: '张家口', value: 31 },
-                    { name: '阳泉', value: 31 },
-                    { name: '莱州', value: 32 },
-                    { name: '湖州', value: 32 },
-                    { name: '汕头', value: 32 },
-                    { name: '昆山', value: 33 },
-                    { name: '宁波', value: 33 },
-                    { name: '湛江', value: 33 },
-                    { name: '揭阳', value: 34 },
-                    { name: '荣成', value: 34 },
-                    { name: '连云港', value: 35 },
-                    { name: '葫芦岛', value: 35 },
-                    { name: '常熟', value: 36 },
-                    { name: '东莞', value: 36 },
-                    { name: '河源', value: 36 },
-                    { name: '淮安', value: 36 },
-                    { name: '泰州', value: 36 },
-                    { name: '南宁', value: 37 },
-                    { name: '营口', value: 37 },
-                    { name: '惠州', value: 37 },
-                    { name: '江阴', value: 37 },
-                    { name: '蓬莱', value: 37 },
-                    { name: '韶关', value: 38 },
-                    { name: '嘉峪关', value: 38 },
-                    { name: '广州', value: 38 },
-                    { name: '延安', value: 38 },
-                    { name: '太原', value: 39 },
-                    { name: '清远', value: 39 },
-                    { name: '中山', value: 39 },
-                    { name: '昆明', value: 39 },
-                    { name: '寿光', value: 40 },
-                    { name: '盘锦', value: 40 },
-                    { name: '长治', value: 41 },
-                    { name: '深圳', value: 41 },
-                    { name: '珠海', value: 42 },
-                    { name: '宿迁', value: 43 },
-                    { name: '咸阳', value: 43 },
-                    { name: '铜川', value: 44 },
-                    { name: '平度', value: 44 },
-                    { name: '佛山', value: 44 },
-                    { name: '海口', value: 44 },
-                    { name: '江门', value: 45 },
-                    { name: '章丘', value: 45 },
-                    { name: '肇庆', value: 46 },
-                    { name: '大连', value: 47 },
-                    { name: '临汾', value: 47 },
-                    { name: '吴江', value: 47 },
-                    { name: '石嘴山', value: 49 },
-                    { name: '沈阳', value: 50 },
-                    { name: '苏州', value: 50 },
-                    { name: '茂名', value: 50 },
-                    { name: '嘉兴', value: 51 },
-                    { name: '长春', value: 51 },
-                    { name: '胶州', value: 52 },
-                    { name: '银川', value: 52 },
-                    { name: '张家港', value: 52 },
-                    { name: '三门峡', value: 53 },
-                    { name: '锦州', value: 54 },
-                    { name: '南昌', value: 54 },
-                    { name: '柳州', value: 54 },
-                    { name: '三亚', value: 54 },
-                    { name: '自贡', value: 56 },
-                    { name: '吉林', value: 56 },
-                    { name: '阳江', value: 57 },
-                    { name: '泸州', value: 57 },
-                    { name: '西宁', value: 57 },
-                    { name: '宜宾', value: 58 },
-                    { name: '呼和浩特', value: 58 },
-                    { name: '成都', value: 58 },
-                    { name: '大同', value: 58 },
-                    { name: '镇江', value: 59 },
-                    { name: '桂林', value: 59 },
-                    { name: '张家界', value: 59 },
-                    { name: '宜兴', value: 59 },
-                    { name: '北海', value: 60 },
-                    { name: '西安', value: 61 },
-                    { name: '金坛', value: 62 },
-                    { name: '东营', value: 62 },
-                    { name: '牡丹江', value: 63 },
-                    { name: '遵义', value: 63 },
-                    { name: '绍兴', value: 63 },
-                    { name: '扬州', value: 64 },
-                    { name: '常州', value: 64 },
-                    { name: '潍坊', value: 65 },
-                    { name: '重庆', value: 66 },
-                    { name: '台州', value: 67 },
-                    { name: '南京', value: 67 },
-                    { name: '滨州', value: 70 },
-                    { name: '贵阳', value: 71 },
-                    { name: '无锡', value: 71 },
-                    { name: '本溪', value: 71 },
-                    { name: '克拉玛依', value: 72 },
-                    { name: '渭南', value: 72 },
-                    { name: '马鞍山', value: 72 },
-                    { name: '宝鸡', value: 72 },
-                    { name: '焦作', value: 75 },
-                    { name: '句容', value: 75 },
-                    { name: '北京', value: 79 },
-                    { name: '徐州', value: 79 },
-                    { name: '衡水', value: 80 },
-                    { name: '包头', value: 80 },
-                    { name: '绵阳', value: 80 },
-                    { name: '乌鲁木齐', value: 84 },
-                    { name: '枣庄', value: 84 },
-                    { name: '杭州', value: 84 },
-                    { name: '淄博', value: 85 },
-                    { name: '鞍山', value: 86 },
-                    { name: '溧阳', value: 86 },
-                    { name: '库尔勒', value: 86 },
-                    { name: '安阳', value: 90 },
-                    { name: '开封', value: 90 },
-                    { name: '济南', value: 92 },
-                    { name: '德阳', value: 93 },
-                    { name: '温州', value: 95 },
-                    { name: '九江', value: 96 },
-                    { name: '邯郸', value: 98 },
-                    { name: '临安', value: 99 },
-                    { name: '兰州', value: 99 },
-                    { name: '沧州', value: 100 },
-                    { name: '临沂', value: 103 },
-                    { name: '南充', value: 104 },
-                    { name: '天津', value: 105 },
-                    { name: '富阳', value: 106 },
-                    { name: '泰安', value: 112 },
-                    { name: '诸暨', value: 112 },
-                    { name: '郑州', value: 113 },
-                    { name: '哈尔滨', value: 114 },
-                    { name: '聊城', value: 116 },
-                    { name: '芜湖', value: 117 },
-                    { name: '唐山', value: 119 },
-                    { name: '平顶山', value: 119 },
-                    { name: '邢台', value: 119 },
-                    { name: '德州', value: 120 },
-                    { name: '济宁', value: 120 },
-                    { name: '荆州', value: 127 },
-                    { name: '宜昌', value: 130 },
-                    { name: '义乌', value: 132 },
-                    { name: '丽水', value: 133 },
-                    { name: '洛阳', value: 134 },
-                    { name: '秦皇岛', value: 136 },
-                    { name: '株洲', value: 143 },
-                    { name: '石家庄', value: 147 },
-                    { name: '莱芜', value: 148 },
-                    { name: '常德', value: 152 },
-                    { name: '保定', value: 153 },
-                    { name: '湘潭', value: 154 },
-                    { name: '金华', value: 157 },
-                    { name: '岳阳', value: 169 },
-                    { name: '长沙', value: 175 },
-                    { name: '衢州', value: 177 },
-                    { name: '廊坊', value: 193 },
-                    { name: '菏泽', value: 194 },
-                    { name: '合肥', value: 229 },
-                    { name: '武汉', value: 273 },
-                    { name: '大庆', value: 279 }
-                ];
-                var geoCoordMap = {
-                    '海门': [121.15, 31.89],
-                    '鄂尔多斯': [109.781327, 39.608266],
-                    '招远': [120.38, 37.35],
-                    '舟山': [122.207216, 29.985295],
-                    '齐齐哈尔': [123.97, 47.33],
-                    '盐城': [120.13, 33.38],
-                    '赤峰': [118.87, 42.28],
-                    '青岛': [120.33, 36.07],
-                    '乳山': [121.52, 36.89],
-                    '金昌': [102.188043, 38.520089],
-                    '泉州': [118.58, 24.93],
-                    '莱西': [120.53, 36.86],
-                    '日照': [119.46, 35.42],
-                    '胶南': [119.97, 35.88],
-                    '南通': [121.05, 32.08],
-                    '拉萨': [91.11, 29.97],
-                    '云浮': [112.02, 22.93],
-                    '梅州': [116.1, 24.55],
-                    '文登': [122.05, 37.2],
-                    '上海': [121.48, 31.22],
-                    '攀枝花': [101.718637, 26.582347],
-                    '威海': [122.1, 37.5],
-                    '承德': [117.93, 40.97],
-                    '厦门': [118.1, 24.46],
-                    '汕尾': [115.375279, 22.786211],
-                    '潮州': [116.63, 23.68],
-                    '丹东': [124.37, 40.13],
-                    '太仓': [121.1, 31.45],
-                    '曲靖': [103.79, 25.51],
-                    '烟台': [121.39, 37.52],
-                    '福州': [119.3, 26.08],
-                    '瓦房店': [121.979603, 39.627114],
-                    '即墨': [120.45, 36.38],
-                    '抚顺': [123.97, 41.97],
-                    '玉溪': [102.52, 24.35],
-                    '张家口': [114.87, 40.82],
-                    '阳泉': [113.57, 37.85],
-                    '莱州': [119.942327, 37.177017],
-                    '湖州': [120.1, 30.86],
-                    '汕头': [116.69, 23.39],
-                    '昆山': [120.95, 31.39],
-                    '宁波': [121.56, 29.86],
-                    '湛江': [110.359377, 21.270708],
-                    '揭阳': [116.35, 23.55],
-                    '荣成': [122.41, 37.16],
-                    '连云港': [119.16, 34.59],
-                    '葫芦岛': [120.836932, 40.711052],
-                    '常熟': [120.74, 31.64],
-                    '东莞': [113.75, 23.04],
-                    '河源': [114.68, 23.73],
-                    '淮安': [119.15, 33.5],
-                    '泰州': [119.9, 32.49],
-                    '南宁': [108.33, 22.84],
-                    '营口': [122.18, 40.65],
-                    '惠州': [114.4, 23.09],
-                    '江阴': [120.26, 31.91],
-                    '蓬莱': [120.75, 37.8],
-                    '韶关': [113.62, 24.84],
-                    '嘉峪关': [98.289152, 39.77313],
-                    '广州': [113.23, 23.16],
-                    '延安': [109.47, 36.6],
-                    '太原': [112.53, 37.87],
-                    '清远': [113.01, 23.7],
-                    '中山': [113.38, 22.52],
-                    '昆明': [102.73, 25.04],
-                    '寿光': [118.73, 36.86],
-                    '盘锦': [122.070714, 41.119997],
-                    '长治': [113.08, 36.18],
-                    '深圳': [114.07, 22.62],
-                    '珠海': [113.52, 22.3],
-                    '宿迁': [118.3, 33.96],
-                    '咸阳': [108.72, 34.36],
-                    '铜川': [109.11, 35.09],
-                    '平度': [119.97, 36.77],
-                    '佛山': [113.11, 23.05],
-                    '海口': [110.35, 20.02],
-                    '江门': [113.06, 22.61],
-                    '章丘': [117.53, 36.72],
-                    '肇庆': [112.44, 23.05],
-                    '大连': [121.62, 38.92],
-                    '临汾': [111.5, 36.08],
-                    '吴江': [120.63, 31.16],
-                    '石嘴山': [106.39, 39.04],
-                    '沈阳': [123.38, 41.8],
-                    '苏州': [120.62, 31.32],
-                    '茂名': [110.88, 21.68],
-                    '嘉兴': [120.76, 30.77],
-                    '长春': [125.35, 43.88],
-                    '胶州': [120.03336, 36.264622],
-                    '银川': [106.27, 38.47],
-                    '张家港': [120.555821, 31.875428],
-                    '三门峡': [111.19, 34.76],
-                    '锦州': [121.15, 41.13],
-                    '南昌': [115.89, 28.68],
-                    '柳州': [109.4, 24.33],
-                    '三亚': [109.511909, 18.252847],
-                    '自贡': [104.778442, 29.33903],
-                    '吉林': [126.57, 43.87],
-                    '阳江': [111.95, 21.85],
-                    '泸州': [105.39, 28.91],
-                    '西宁': [101.74, 36.56],
-                    '宜宾': [104.56, 29.77],
-                    '呼和浩特': [111.65, 40.82],
-                    '成都': [104.06, 30.67],
-                    '大同': [113.3, 40.12],
-                    '镇江': [119.44, 32.2],
-                    '桂林': [110.28, 25.29],
-                    '张家界': [110.479191, 29.117096],
-                    '宜兴': [119.82, 31.36],
-                    '北海': [109.12, 21.49],
-                    '西安': [108.95, 34.27],
-                    '金坛': [119.56, 31.74],
-                    '东营': [118.49, 37.46],
-                    '牡丹江': [129.58, 44.6],
-                    '遵义': [106.9, 27.7],
-                    '绍兴': [120.58, 30.01],
-                    '扬州': [119.42, 32.39],
-                    '常州': [119.95, 31.79],
-                    '潍坊': [119.1, 36.62],
-                    '重庆': [106.54, 29.59],
-                    '台州': [121.420757, 28.656386],
-                    '南京': [118.78, 32.04],
-                    '滨州': [118.03, 37.36],
-                    '贵阳': [106.71, 26.57],
-                    '无锡': [120.29, 31.59],
-                    '本溪': [123.73, 41.3],
-                    '克拉玛依': [84.77, 45.59],
-                    '渭南': [109.5, 34.52],
-                    '马鞍山': [118.48, 31.56],
-                    '宝鸡': [107.15, 34.38],
-                    '焦作': [113.21, 35.24],
-                    '句容': [119.16, 31.95],
-                    '北京': [116.46, 39.92],
-                    '徐州': [117.2, 34.26],
-                    '衡水': [115.72, 37.72],
-                    '包头': [110, 40.58],
-                    '绵阳': [104.73, 31.48],
-                    '乌鲁木齐': [87.68, 43.77],
-                    '枣庄': [117.57, 34.86],
-                    '杭州': [120.19, 30.26],
-                    '淄博': [118.05, 36.78],
-                    '鞍山': [122.85, 41.12],
-                    '溧阳': [119.48, 31.43],
-                    '库尔勒': [86.06, 41.68],
-                    '安阳': [114.35, 36.1],
-                    '开封': [114.35, 34.79],
-                    '济南': [117, 36.65],
-                    '德阳': [104.37, 31.13],
-                    '温州': [120.65, 28.01],
-                    '九江': [115.97, 29.71],
-                    '邯郸': [114.47, 36.6],
-                    '临安': [119.72, 30.23],
-                    '兰州': [103.73, 36.03],
-                    '沧州': [116.83, 38.33],
-                    '临沂': [118.35, 35.05],
-                    '南充': [106.110698, 30.837793],
-                    '天津': [117.2, 39.13],
-                    '富阳': [119.95, 30.07],
-                    '泰安': [117.13, 36.18],
-                    '诸暨': [120.23, 29.71],
-                    '郑州': [113.65, 34.76],
-                    '哈尔滨': [126.63, 45.75],
-                    '聊城': [115.97, 36.45],
-                    '芜湖': [118.38, 31.33],
-                    '唐山': [118.02, 39.63],
-                    '平顶山': [113.29, 33.75],
-                    '邢台': [114.48, 37.05],
-                    '德州': [116.29, 37.45],
-                    '济宁': [116.59, 35.38],
-                    '荆州': [112.239741, 30.335165],
-                    '宜昌': [111.3, 30.7],
-                    '义乌': [120.06, 29.32],
-                    '丽水': [119.92, 28.45],
-                    '洛阳': [112.44, 34.7],
-                    '秦皇岛': [119.57, 39.95],
-                    '株洲': [113.16, 27.83],
-                    '石家庄': [114.48, 38.03],
-                    '莱芜': [117.67, 36.19],
-                    '常德': [111.69, 29.05],
-                    '保定': [115.48, 38.85],
-                    '湘潭': [112.91, 27.87],
-                    '金华': [119.64, 29.12],
-                    '岳阳': [113.09, 29.37],
-                    '长沙': [113, 28.21],
-                    '衢州': [118.88, 28.97],
-                    '廊坊': [116.7, 39.53],
-                    '菏泽': [115.480656, 35.23375],
-                    '合肥': [117.27, 31.86],
-                    '武汉': [114.31, 30.52],
-                    '大庆': [125.03, 46.58]
-                };
-
-                var convertData = function (data) {
-                    var res = [];
-                    for (var i = 0; i < data.length; i++) {
-                        var geoCoord = geoCoordMap[data[i].name];
-                        if (geoCoord) {
-                            res.push({
-                                name: data[i].name,
-                                value: geoCoord.concat(data[i].value)
-                            });
-                        }
-                    }
-                    return res;
-                };
-
-                option = {
-                    title: {
-                        text: '全国直销城市健康度',
-                        left: 'center'
-                    },
-                    tooltip: {
-                        trigger: 'item'
-                    },
-                    bmap: {
-                        center: [104.114129, 37.550339],
-                        zoom: 5,
-                        roam: true,
-                        mapStyle: {
-                            styleJson: [{
-                                'featureType': 'water',
-                                'elementType': 'all',
-                                'stylers': {
-                                    'color': '#d1d1d1'
-                                }
-                            }, {
-                                'featureType': 'land',
-                                'elementType': 'all',
-                                'stylers': {
-                                    'color': '#f3f3f3'
-                                }
-                            }, {
-                                'featureType': 'railway',
-                                'elementType': 'all',
-                                'stylers': {
-                                    'visibility': 'off'
-                                }
-                            }, {
-                                'featureType': 'highway',
-                                'elementType': 'all',
-                                'stylers': {
-                                    'color': '#fdfdfd'
-                                }
-                            }, {
-                                'featureType': 'highway',
-                                'elementType': 'labels',
-                                'stylers': {
-                                    'visibility': 'off'
-                                }
-                            }, {
-                                'featureType': 'arterial',
-                                'elementType': 'geometry',
-                                'stylers': {
-                                    'color': '#fefefe'
-                                }
-                            }, {
-                                'featureType': 'arterial',
-                                'elementType': 'geometry.fill',
-                                'stylers': {
-                                    'color': '#fefefe'
-                                }
-                            }, {
-                                'featureType': 'poi',
-                                'elementType': 'all',
-                                'stylers': {
-                                    'visibility': 'off'
-                                }
-                            }, {
-                                'featureType': 'green',
-                                'elementType': 'all',
-                                'stylers': {
-                                    'visibility': 'off'
-                                }
-                            }, {
-                                'featureType': 'subway',
-                                'elementType': 'all',
-                                'stylers': {
-                                    'visibility': 'off'
-                                }
-                            }, {
-                                'featureType': 'manmade',
-                                'elementType': 'all',
-                                'stylers': {
-                                    'color': '#d1d1d1'
-                                }
-                            }, {
-                                'featureType': 'local',
-                                'elementType': 'all',
-                                'stylers': {
-                                    'color': '#d1d1d1'
-                                }
-                            }, {
-                                'featureType': 'arterial',
-                                'elementType': 'labels',
-                                'stylers': {
-                                    'visibility': 'off'
-                                }
-                            }, {
-                                'featureType': 'boundary',
-                                'elementType': 'all',
-                                'stylers': {
-                                    'color': '#fefefe'
-                                }
-                            }, {
-                                'featureType': 'building',
-                                'elementType': 'all',
-                                'stylers': {
-                                    'color': '#d1d1d1'
-                                }
-                            }, {
-                                'featureType': 'label',
-                                'elementType': 'labels.text.fill',
-                                'stylers': {
-                                    'color': '#999999'
-                                }
-                            }]
-                        }
-                    },
-                    series: [
-                        {
-                            name: 'pm2.5',
-                            type: 'scatter',
-                            coordinateSystem: 'bmap',
-                            data: convertData(data),
-                            symbolSize: function (val) {
-                                return val[2] / 10;
-                            },
-                            encode: {
-                                value: 2
-                            },
-                            label: {
-                                formatter: '{b}',
-                                position: 'right',
-                                show: false
-                            },
-                            emphasis: {
-                                label: {
-                                    show: true
-                                }
-                            }
-                        },
-                        {
-                            name: 'Top 5',
-                            type: 'effectScatter',
-                            coordinateSystem: 'bmap',
-                            data: convertData(data.sort(function (a, b) {
-                                return b.value - a.value;
-                            }).slice(0, 6)),
-                            symbolSize: function (val) {
-                                return val[2] / 10;
-                            },
-                            encode: {
-                                value: 2
-                            },
-                            showEffectOn: 'render',
-                            rippleEffect: {
-                                brushType: 'stroke'
-                            },
-                            hoverAnimation: true,
-                            label: {
-                                formatter: '{b}',
-                                position: 'right',
-                                show: true
-                            },
-                            itemStyle: {
-                                shadowBlur: 10,
-                                shadowColor: '#333'
-                            },
-                            zlevel: 1
-                        }
-                    ]
-                };
-                return option
-            }
-        }
-
+  el: '#app',
+  data() {
+    return {
 
     }
-})
-        </script>
-    </body>
+  },
+  mounted() {
 
+   },
+  methods: {
+  }
+}
+)
+
+</script>
+  <script type="text/javascript">
+ //window.open('https://wuba.xinghuo.58.com/visualization/share/26715','_blank', 'width=800,height=600,left=200,top=100');
+
+
+        // 一开始加载就适应屏幕的宽高
+        $(function() {
+            //offsetWidth： 获取body元素对象的宽度，即offsetWidth=width+padding+border availWidth：返回当前屏幕宽度
+            var scale = document.body.clientWidth / 1920;
+            $('#xinghuo-activity').css("transform", "scale("+scale+")");
+            $('#button-right').css("transform", "scale("+scale+")");
+            $('#button-left').css("transform", "scale("+scale+")");
+        });
+        $(window).resize(function() {
+            var scale = document.body.clientWidth / 1920;
+            $('#xinghuo-activity').css("transform", "scale("+scale+")" );
+            $('#button-right').css("transform", "scale("+scale+")");
+            $('#button-left').css("transform", "scale("+scale+")");
+        });
+
+
+    // 定义滚动后显示元素的函数
+  function revealElement() {
+
+    let myElement1 = document.getElementById('baoming-right');
+    let myElement2 = document.getElementById('baoming-left');
+    if (window.pageYOffset > document.body.clientWidth / 1920 *400) {
+        
+     // h.hidden-
+     myElement1.hidden=false
+     myElement2.hidden=false
+      //myElement2.classList.add('show_ele');
+    } else {
+     myElement1.hidden=true
+     myElement2.hidden=true
+   // myElement1.classList.remove('show_ele');
+   //   myElement2.classList.remove('show_ele');
+    }
+  }
+ 
+  // 监听滚动事件
+  window.addEventListener('scroll', revealElement);
+
+
+    </script> 
 </html>
